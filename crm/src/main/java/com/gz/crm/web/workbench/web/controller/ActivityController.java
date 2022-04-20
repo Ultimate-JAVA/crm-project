@@ -237,4 +237,10 @@ public class ActivityController {
             outputStream.flush();
         }
     }
+    //文件上传
+    @RequestMapping("/upload.do")
+    public void upload(){
+        System.out.println("a1");
+        System.out.println("sdfihaskdjhfasjdflasjdfsadfsa");
+    }
 }
