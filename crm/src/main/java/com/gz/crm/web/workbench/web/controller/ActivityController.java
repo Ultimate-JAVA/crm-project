@@ -8,7 +8,6 @@ import com.gz.crm.web.settings.domain.User;
 import com.gz.crm.web.settings.service.UserService;
 import com.gz.crm.web.workbench.domain.Activity;
 import com.gz.crm.web.workbench.service.ActivityService;
-import com.sun.deploy.net.HttpResponse;
 import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
@@ -18,12 +17,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
-import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.io.*;
-import java.util.*;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/workbench/activity")
@@ -231,15 +233,9 @@ public class ActivityController {
             while ((len = inputStream.read(bytes)) != -1) {
                 outputStream.write(bytes, 0, len);
             }*/
-
             wb.write(outputStream);
             wb.close();
             outputStream.flush();
         }
-    }
-    //文件上传
-    @RequestMapping("/upload.do")
-    public void upload(){
-        
     }
 }
